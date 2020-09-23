@@ -1,0 +1,17 @@
+env:
+  es6: true
+  node: true
+extends: '@ridedott/eslint-config'
+overrides:
+  # Test files.
+  - files:
+      - ./src/**/*.spec.ts
+    rules:
+      # Arbitrary numbers are often used as test data.
+      '@typescript-eslint/no-magic-numbers'
+      # Default lexicographical compare is useful to check array equivalence.
+      '@typescript-eslint/require-array-sort-compare': 'off'
+parserOptions:
+  ecmaVersion: 2020
+  project: tsconfig.json
+  sourceType: module

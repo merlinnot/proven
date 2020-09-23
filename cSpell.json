@@ -1,0 +1,27 @@
+{
+  "dictionaries": [
+    "companies",
+    "filetypes",
+    "misc",
+    "node",
+    "npm",
+    "softwareTerms",
+    "typescript"
+  ],
+  "flagWords": [],
+  "ignorePaths": [
+    "./.eslintrc",
+    "./CHANGELOG.md",
+    "./coverage/**",
+    "./lib/**",
+    "./LICENSE",
+    "./node_modules/**",
+    "*.config.js",
+    "*.json",
+    "*.log",
+    "*.yaml",
+    "**/*.json"
+  ],
+  "language": "en-US",
+  "words": ["dependabot", "merlinnot", "proven", "subdimension"]
+}

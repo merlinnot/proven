@@ -1,0 +1,75 @@
+{
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "dependencies": {},
+  "description": "Purely functional data structures.",
+  "devDependencies": {
+    "@commitlint/cli": "^9.0.1",
+    "@commitlint/config-conventional": "^9.0.1",
+    "@ridedott/eslint-config": "^2.2.25",
+    "@types/jest": "^26.0.3",
+    "commitizen": "^4.1.2",
+    "cspell": "^4.0.63",
+    "eslint": "^7.8.1",
+    "fast-check": "^2.3.0",
+    "husky": "^4.2.5",
+    "jest": "^26.4.2",
+    "lint-staged": "^10.2.11",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.0.5",
+    "ts-jest": "^26.3.0",
+    "typescript": "^4.0.2"
+  },
+  "engines": {
+    "node": ">= 14"
+  },
+  "exports": {
+    "import": "./lib/esm/index.js",
+    "require": "./lib/cjs/index.js"
+  },
+  "files": [
+    "./CHANGELOG.md",
+    "./lib",
+    "./LICENSE",
+    "./README.md",
+    "./src"
+  ],
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "license": "MIT",
+  "main": "./lib/cjs/index.js",
+  "module": "./lib/esm/index.js",
+  "name": "@merlinnot/proven",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:merlinnot/proven.git"
+  },
+  "scripts": {
+    "build": "run-p build:*",
+    "build:cjs": "tsc --module commonjs --outDir ./lib/cjs --project ./tsconfig.production.json",
+    "build:esm": "tsc --project ./tsconfig.production.json",
+    "clean": "rm -rf lib",
+    "cz": "git-cz",
+    "cz:retry": "git-cz --retry",
+    "format": "prettier --check '**/*.{js,json,md,ts,yml,yaml}'",
+    "format:fix": "prettier --write '**/*.{js,json,md,ts,yml,yaml}'",
+    "lint": "eslint '**/*.ts'",
+    "lint:fix": "eslint --fix '**/*.ts'",
+    "spellcheck": "cspell '**/*'",
+    "test": "NODE_OPTIONS='--enable-source-maps' jest",
+    "test:ci": "NODE_OPTIONS='--enable-source-maps' jest --ci --collect-coverage",
+    "test:coverage": "NODE_OPTIONS='--enable-source-maps' jest --collect-coverage",
+    "test:watch": "NODE_OPTIONS='--enable-source-maps' jest --watch",
+    "types": "tsc --noEmit"
+  },
+  "type": "module",
+  "version": "4.0.27"
+}
